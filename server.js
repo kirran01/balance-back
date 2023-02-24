@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 const authRouter = require("./routes/auth.routes");
 const employeeRouter = require("./routes/employee.routes");
+const tableRouter=require('./routes/table.routes')
 
 const app = express();
 const PORT = process.env.PORT;
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use("/auth", authRouter);
 app.use("/employee", employeeRouter);
+app.use('/table',tableRouter)
 
 app.get("/", (req, res) => {
   res.send("balance server up");

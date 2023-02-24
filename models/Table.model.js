@@ -10,6 +10,9 @@ const tableSchema = new Schema({
   month: {
     type: String,
   },
+  createdOn: {
+    type: Date,
+  },
   regularEarnings: {
     type: Number,
   },
