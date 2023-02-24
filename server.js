@@ -1,19 +1,21 @@
-require('dotenv/config')
-const express=require('express')
-const mongoose=require('mongoose')
+require("dotenv/config");
+const express = require("express");
+const mongoose = require("mongoose");
 
 const authRouter = require("./routes/auth.routes");
+const employeeRouter = require("./routes/employee.routes");
 
-const app=express();
-const PORT= process.env.PORT;
+const app = express();
+const PORT = process.env.PORT;
 
 app.use(express.json());
 
 app.use("/auth", authRouter);
+app.use("/employee", employeeRouter);
 
-app.get('/',(req,res)=>{
-res.send('balance server up');
-})
+app.get("/", (req, res) => {
+  res.send("balance server up");
+});
 
 mongoose
   .connect(process.env.MONGODB_URI)
