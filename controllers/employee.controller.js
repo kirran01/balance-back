@@ -18,4 +18,15 @@ const createEmployee = async (req, res) => {
   }
 };
 
-module.exports = { createEmployee };
+const deleteEmployee = async (req, res) => {
+  try {
+    const deletedEmployee = await Employee.findByIdAndDelete(req.params.id);
+    if (deletedEmployee) {
+      res.send("deleted!");
+    }
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+module.exports = { createEmployee, deleteEmployee };
